@@ -1,0 +1,30 @@
+  const handleColorClick = (color) => {
+    const currentDate = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    const newItem = { id: Date.now(), color, date: currentDate, text: '' };
+    setCartItems([...cartItems, newItem]); // Add color, date, and empty text to cart
+  };
+
+  // Update individual note fields
+  const handleTextChange = async(id, value) => {
+    const res= await axios.post('http://localhost:3000/api/notes')
+    setCartItems(cartItems.map(item => 
+      item.id === id ? { ...item, text: value } : item
+    ));
+  };
+
+  const handleDateChange = (id, date) => {
+    setCartItems(cartItems.map(item => 
+      item.id === id ? { ...item, date } : item
+    ));
+  };
+  useEffect(() => {
+    const storedItems = localStorage.getItem('cartItems');
+    if (storedItems) {
+      setCartItems(JSON.parse(storedItems));
+    }
+  }, []);
+
+  // Save cart items to local storage whenever cartItems state changes
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
