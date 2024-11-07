@@ -30,7 +30,7 @@ function LoginPage() {
       });
       console.log('Response:', response.data);
 
-      const { token,name } = response.data;
+      const { token,name,userId } = response.data;
       
       if (!token) {
         console.error('No token received');
@@ -40,6 +40,7 @@ function LoginPage() {
       
       localStorage.setItem('jwtToken', token);
       localStorage.setItem('name', name);
+      localStorage.setItem('userId', userId);
       alert('Login successful!');
       router.push('/'); 
     } catch (error) {

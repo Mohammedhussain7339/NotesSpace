@@ -38,13 +38,7 @@ function Navbar() {
         onClick={() => router.push('/')}
       />
       <ul className="flex gap-4 mr-4">
-        <li>
-          <Link href="/signup">Sign Up</Link>
-        </li>
-        <li>
-          <Link href="/login">Login</Link>
-        </li>
-        {token ? (
+        {token && username ? (
           <IoMdLogIn
             className="text-3xl text-red-500 cursor-pointer"
             onClick={logoutHandler}
