@@ -23,7 +23,7 @@ function LoginPage() {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/login', data, {
+      const response = await axios.post('http://localhost:3000/api/Auth/login', data, {
         headers: {
           'Content-Type': 'application/json',
         },

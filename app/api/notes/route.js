@@ -5,10 +5,21 @@
   export async function POST(req) {
     await dbConnect(); // Connect to the database
     console.log(dbConnect)
+    const { userId, text, date, color } = await req.json(); // Pass `userId` from frontend
+
+    if (!userId) {
+        return NextResponse.json({ message: "User ID is required" }, { status: 400 });
+    }
+
     try {
-        const { id, text, date, color } = await req.json();
-        console.log('id:',id,'text:',text,'date',date,'color',color)
-        const newNote = await Notes.create({ id, text, date, color });
+        const newNote = await Notes.create({
+            id: Date.now(),
+            userId,
+            text,
+            date,
+            color,
+        });
+
         return new Response(JSON.stringify(newNote), { status: 201 });
     } catch (error) {
         return new Response(JSON.stringify({ error: error.message }), { status: 500 });

@@ -32,6 +32,7 @@ function Page() {
 
     try {
       const response = await axios.post('http://localhost:3000/api/notes', newItem);
+    
       console.log('Item saved to DB:', response.data);
       setRefresh(prev => !prev);
     } catch (error) {

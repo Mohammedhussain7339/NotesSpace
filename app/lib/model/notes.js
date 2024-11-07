@@ -6,6 +6,12 @@ const NotesSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    userId: { // Reference to User model
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+
     text: {
         type: String,
         required: true,
