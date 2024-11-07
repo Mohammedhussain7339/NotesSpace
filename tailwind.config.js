@@ -18,10 +18,12 @@ module.exports = {
           '100%': { opacity: '1' },
         },
       },
-
       colors: {
         background: "#E2E8F3",
         foreground: "var(--foreground)",
+      },
+      screens: {
+        'xsm': '425px',  // Custom breakpoint for 425px devices
       },
     },
   },

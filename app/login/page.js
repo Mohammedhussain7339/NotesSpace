@@ -41,7 +41,7 @@ function LoginPage() {
       localStorage.setItem('jwtToken', token);
       localStorage.setItem('name', name);
       localStorage.setItem('userId', userId);
-      alert('Login successful!');
+      // alert('Login successful!');
       router.push('/'); 
     } catch (error) {
       console.error('Error during submission:', error);

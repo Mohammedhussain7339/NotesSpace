@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* For Webkit browsers (Chrome, Safari) */
+main::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* For Firefox */
+  main {
+    scrollbar-width: none;
+  }
+  
+  /* For Internet Explorer / Edge */
+  main {
+    -ms-overflow-style: none;
+  }
+  .rgba{
+    background-color: rgba(64, 124, 212, 0.5);
+    /* position: absolute; */
+    top: 0px;
+  }
