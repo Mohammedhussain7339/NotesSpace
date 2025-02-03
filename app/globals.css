@@ -2,20 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* For Webkit browsers (Chrome, Safari) */
+.main {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.main::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}  
+  /* For Firefox */
+  main {
+    scrollbar-width: none;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  /* For Internet Explorer / Edge */
+  main {
+    -ms-overflow-style: none;
+  }
+  .rgba{
+    background-color: rgba(64, 124, 212, 0.5);
+    /* position: absolute; */
+    top: 0px;
+  }
