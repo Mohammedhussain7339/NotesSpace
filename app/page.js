@@ -15,7 +15,7 @@ function Page() {
       timer = setTimeout(() => func(...args), delay);
     };
   }
-  const username = localStorage.getItem('name');
+  const username =  typeof window !== 'undefined' ? localStorage.getItem('name'):null;
   const [animate, setAnimate] = useState(false);
   const [notes, setNotes] = useState([]);
   const [refresh, setRefresh] = useState(!false);
